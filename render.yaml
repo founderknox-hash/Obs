@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: luau-vm
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: LUAU_AST_BIN
+        value: /app/tools/luau-ast/bin/luau-ast
